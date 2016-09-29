@@ -4,31 +4,37 @@
 		<meta charset="utf-8">
 		<script src="node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="node_modules/underscore/underscore-min.js"></script>
-		<script src="node_modules/backbone/backbone-min.js"></script>
+		<script src="node_modules/backbone/backbone.js"></script>
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 		<title>Todo List</title>
 	</head>
 	<body>
-		<div>
-			<input type="text" id="new-todo" placeholder="What do you want to do today?">
-		</div>
-		<div class="todoList">
-			<table class="list"></table>
-		</div>
-		<script type="text/template" id="status-template">
-			<button class="all" href="#/">All</button>
-			<button class="active" href="#/active">Active</button>
-			<button class="complete" href="#/complete">Completed</button>
-			<button class="clearCompleted">Clear completed</button>
-		</script>
-		<script type="text/template" id="itemTemplate">
-			<td><img src="assets/images/green-tick-in-circle-1147519.jpg"></td>
-			<td><input type="text" class="edit"> value="<%= name %>"></td>
-			<td><img src="assets/images/icon-02-512.png"></td>
+		<center>
+			<h1>Todo List</h1>
+			<div>
+				<input type="text" class="new-todo" id="new-todo" placeholder="What do you want to do today?">
+			</div>
+			<div>
+				<table id="todo-list"></table>
+			</div>
+			<div id="action-buttons">
+				<button class="all" href="#/">All</button>
+				<button class="active" href="#/active">Active</button>
+				<button class="complete" href="#/complete">Completed</button>
+				<button class="clearCompleted">Clear completed</button>
+			</div>
+		</center>
+		<script type="text/template" id="item-template">
+			<td><img class="tick" src="assets/images/green-tick-in-circle-1147519.jpg"></td>
+			<td><input type="text" readonly="true" class="edit" value="<%= name %>"></td>
+			<td><img class="cross" src="assets/images/icon-02-512.png"></td>
 		</script>
 	</body>
 	<script src="js/views/inputView.js"></script>
 	<script src="js/views/itemView.js"></script>
+	<script src="js/views/ListView.js"></script>
+	<script src="js/views/ListRowView.js"></script>
+	<script src="js/views/ActionView.js"></script>
 	<script src="js/routers/router.js"></script>
 	<script src="js/models/todo.js"></script>
 	<script src="js/app.js"></script>

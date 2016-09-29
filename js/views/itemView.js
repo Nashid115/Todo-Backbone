@@ -3,32 +3,16 @@ window.App = window.App || {};
 App.ItemView = Backbone.View.extend({
 	tagName : "tr",
 	className : "todoItem",
-	todoTemplate : _.template($('#itemTemplate').html()),
-	el : ".list",
-	events : {
-		"click .tick" : "complete",
-		"click .cross" : "del",
-		"dblclick .edit" : "edit",
-		"keyup .edit" : "update"
-	},
+	template : _.template($('#item-template').html()),
+	el : ".todo-list",
 	initialize : function() {
-		this.$el = $('.list');
+		this.$el = $('.todo-list');
 	},
 	render : function() {
+		console.log(this.model);
+		this.$el.html(this.template(this.model.attributes));
 		this.$el.html();
 		this.input = this.$('.edit');
 		return this;
-	},
-	edit : function() {
-
-	},
-	del : function() {
-
-	},
-	update : function() {
-
-	},
-	complete : function() {
-
 	}
 });

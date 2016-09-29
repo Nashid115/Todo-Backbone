@@ -6,14 +6,16 @@ var inputView = new App.InputView({
 	collection : todoCollection
 });
 
-todoCollection.on('add', function (todo) {
-	console.log('Todo was added. Name : ' + todo.get('name'));
-});
-
-
 var listView = new App.ListView({
 	collection : todoCollection
 });
+
+var actionView = new App.ActionView({
+	collection : todoCollection
+});
+// var listView = new App.ListView({
+// 	collection : todoCollection
+// });
 
 /*
 App.ListView
